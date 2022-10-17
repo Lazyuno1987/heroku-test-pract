@@ -19,9 +19,18 @@ app.get("/contacts", async(req, res) => {
         contacts
     )
 })
-app.delete("/contacts/:name", async (req, res) => {
-    console.log(req.params)
-  await  Contact.findOneAndDelete({name:req.params.name})
+app.get("/contacts/:id", async (req, res) => {
+   
+    const {id} = req.params
+    const contactId = await Contact.findById(id)
+     res.send(contactId)
+})
+app.delete("/contacts/:id", async (req, res) => {
+  
+    const {id} = req.params
+    const contactDelete = await Contact.findOneAndDelete(id);
+    res.send(contactDelete)
+   
 })
 
 
