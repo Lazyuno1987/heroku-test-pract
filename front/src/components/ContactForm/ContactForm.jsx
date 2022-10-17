@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [phone, setNumber] = useState('');
   const [createContact] = useAddContactMutation();
   const { data } = useGetContactsQuery();
-console.log(data)
+
   const onSubmitForm = async ({ name, phone }) => {
     const newContact = { name, phone };
 
